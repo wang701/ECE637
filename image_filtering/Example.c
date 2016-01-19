@@ -4,22 +4,25 @@
 #include "randlib.h"
 #include "typeutil.h"
 
-#define FILTERH 9
-#define FILTERW 9
+#define FH 9
+#define FW 9
 
 void error(char *name);
+struct TIFF_img conv2d(struct TIFF_img input_img, int fh, int fw, int **filter);
 
 int main (int argc, char **argv) 
 {
 	FILE *fp;
 	struct TIFF_img input_img, output_img;
-	int32_t i,j,m,n;
-	/*int32_t pixel;*/
-	double lpf[FILTERH][FILTERW];
+	int32_t i,j,m,n,r,c;
+	double lpf[FH][FW];
 	double rtemp, gtemp, btemp;
 
-	for (i = 0; i < FILTERH; i++) {
-		for (j = 0; j < FILTERW; j++) {
+	int hlim = (FH - 1) / 2;
+	int wlim = (FW - 1) / 2;
+
+	for (i = 0; i < FH; i++) {
+		for (j = 0; j < FW; j++) {
 			lpf[i][j] = 1.0 / 81;
 		}
 	}
@@ -37,6 +40,9 @@ int main (int argc, char **argv)
 		fprintf(stderr, "error reading file %s\n", argv[1]);
 		exit(1);
 	}
+	
+	int ih = input_img.height;
+	int iw = input_img.width;
 
 	/* close image file */
 	fclose(fp);
@@ -48,23 +54,22 @@ int main (int argc, char **argv)
 	}
 
 	/* set up structure for output color image */
-	/* Note that the type is 'c' rather than 'g' */
 	get_TIFF(&output_img, input_img.height, input_img.width, 'c');
-
-	for (i = 0; i < input_img.height; i++) {
-		for (j = 0; j < input_img.width; j++) {
+	
+	for (i = 0; i < ih; i++) {
+		for (j = 0; j < iw; j++) {
 			rtemp = 0.0;
 			gtemp = 0.0;
 			btemp = 0.0;
-			for (m = 0; m < FILTERH; m++) {
-				for (n = 0; n < FILTERW; n++) {
-					if ((i-m) >= 0 && (j-n) >= 0
-						&& (i-m) <= input_img.height
-						&& (j-n) <= input_img.width) {
-						rtemp += lpf[m][n] * input_img.color[0][i-m][j-n]; 
-						gtemp += lpf[m][n] * input_img.color[1][i-m][j-n]; 
-						btemp += lpf[m][n] * input_img.color[2][i-m][j-n]; 
-					}	
+			for (m = -hlim; m <= hlim; m++) {
+				for (n = -wlim; n <= wlim; n++) {
+					r = i-m;
+					c = j-n;
+					if (r < ih && r >=0 && c < iw && c >= 0) {
+						rtemp += lpf[m+hlim][n+wlim] * input_img.color[0][r][c]; 
+						gtemp += lpf[m+hlim][n+wlim] * input_img.color[1][r][c]; 
+						btemp += lpf[m+hlim][n+wlim] * input_img.color[2][r][c]; 
+					}
 				}
 			}
 		  	output_img.color[0][i][j] = (int)rtemp;
@@ -74,8 +79,8 @@ int main (int argc, char **argv)
 	}
 
 	/* open color image file */
-	if ((fp = fopen("output.tif", "wb")) == NULL) {
-		fprintf(stderr, "cannot open file color.tif\n");
+	if ((fp = fopen("output-firlpf.tif", "wb")) == NULL) {
+		fprintf(stderr, "cannot open file output.tif\n");
 		exit(1);
 	}
 
@@ -93,6 +98,42 @@ int main (int argc, char **argv)
 	free_TIFF(&(output_img));
 
 	return(0);
+}
+
+struct TIFF_img conv2d(struct TIFF_img input_img, int fh, int fw, int **filter) {
+	int hl = (fh - 1) / 2;
+	int wl = (fw - 1) / 2;
+	int ih = input_img.height;
+	int iw = input_img.width;
+	uint32_t i,j,m,n,r,c;
+	double rt, gt, bt;
+	struct TIFF_img output_img;
+
+	get_TIFF(&output_img, ih, iw, 'c');
+
+	for (i = 0; i < ih; i++) {
+		for (j = 0; j < iw; j++) {
+			rt = 0.0;
+			gt = 0.0;
+			bt = 0.0;
+			for (m = -hl; m <= hl; m++) {
+				for (n = -wl; n <= wl; n++) {
+					r = i-m;
+					c = j-n;
+					if (r < ih && r >=0 && c < iw && c >= 0) {
+						rt += filter[m+hl][n+wl] * input_img.color[0][r][c]; 
+						gt += filter[m+hl][n+wl] * input_img.color[1][r][c]; 
+						bt += filter[m+hl][n+wl] * input_img.color[2][r][c]; 
+					}
+				}
+			}
+		  	output_img.color[0][i][j] = (int)rt;
+		  	output_img.color[1][i][j] = (int)gt;
+		  	output_img.color[2][i][j] = (int)bt;
+		}
+	}
+	
+	return output_img;
 }
 
 void error(char *name)
