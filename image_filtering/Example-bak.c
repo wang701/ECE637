@@ -64,7 +64,7 @@ int main (int argc, char **argv)
 
   /* Add noise to image */
   for ( i = 0; i < input_img.height; i++ )
-  for ( j = 1; j < input_img.width-1; j++ ) {
+	  for ( j = 1; j < input_img.width-1; j++ ) {
     img2[i][j] += 32*normal();
   }
 
