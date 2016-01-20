@@ -8,15 +8,13 @@
 #define FH 9
 #define FW 9
 
-void error(char *name);
-
 int main (int argc, char **argv) 
 {
 	FILE *fp;
 	struct TIFF_img input_img, output_img;
 	int i, j;
 		
-	if (argc != 2) error(argv[0]);
+	if (argc != 2) errorlpf(argv[0]);
 
 	double *lpf[FH];
 	for (i = 0; i < FH; i++) {
@@ -75,13 +73,11 @@ int main (int argc, char **argv)
 	free_TIFF(&(input_img));
 	free_TIFF(&(output_img));
 
+	/* free filter array */
+	for (i = 0; i < FW; i++) {
+		free(lpf[i]);
+	}
+	
 	return(0);
 }
 
-void error(char *name)
-{
-    printf("usage:  %s  image.tiff \n\n",name);
-    printf("This program reads in a 24-bit color TIFF image.\n");
-	printf("It then filters the image with a 9x9 FIR low pass filter.\n\n");
-    exit(1);
-}
