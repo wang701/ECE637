@@ -1,14 +1,14 @@
 # For Linux or any machines with gcc compiler
 CC = gcc
-CFLAGS = -std=c99 -Wall -pedantic
+CFLAGS = -std=c99 -Wall -pedantic -g
 
 # For SunOS
 #CFLAGS = -Aa
 
-all: firlpf firsf 
+all: firlpf firsf iirf 
 
 clean:
-	/bin/rm -f *.o firlpf firsf
+	/bin/rm -f *.o firlpf firsf iirf
 
 OBJ = defs.o tiff.o allocate.o randlib.o
 
@@ -18,3 +18,5 @@ firlpf: firlpf.o $(OBJ)
 firsf: firsf.o $(OBJ) 
 	$(CC) $(CFLAGS) -o firsf firsf.o $(OBJ) -lm
 
+iirf: iirf.o $(OBJ) 
+	$(CC) $(CFLAGS) -o iirf iirf.o $(OBJ) -lm

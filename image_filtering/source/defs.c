@@ -1,16 +1,20 @@
 #include "defs.h"
 
+void erroriirf(char *name);
+void errorlsf(char *name);
 void errorlpf(char *name);
-int constrain(double pixel_color);
+uint8_t constrain(double pixel_color);
 void conv2d(struct TIFF_img *iimg, struct TIFF_img *oimg,
 			int fh, int fw, double **filter);
 
-int constrain(double pixel_color) {
-	int color = (int)pixel_color;
-	if (color > 255) {
+uint8_t constrain(double pixel_color) {
+	uint8_t color;
+	if (pixel_color > 255) {
 		color = 255;
-	} else if (color < 0) {
+	} else if (pixel_color < 0) {
 		color = 0;
+	} else {
+		color = (uint8_t)pixel_color;
 	}
 	return color;
 }
@@ -62,5 +66,13 @@ void errorsf(char *name)
 	printf("It then filters the image with a 5x5 FIR sharpening filter,\n");
     printf("with supplied lambda value.\n");
     printf("The greater lambda is, the higher sharpening intensity.\n\n");
+    exit(1);
+}
+
+void erroriirf(char *name)
+{
+    printf("usage:  %s  image.tiff\n\n", name);
+    printf("This program reads in a 24-bit color TIFF image.\n");
+	printf("It then filters the image with a IIR filter,\n\n");
     exit(1);
 }

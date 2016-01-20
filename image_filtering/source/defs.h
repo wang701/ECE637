@@ -12,7 +12,8 @@
 
 void errorlpf(char *name);
 void errorsf(char *name);
-int constrain(double pixel_color);
+void erroriirf(char *name);
+uint8_t constrain(double pixel_color);
 void conv2d(struct TIFF_img *iimg, struct TIFF_img *oimg,
 			int fh, int fw, double **filter);
 
