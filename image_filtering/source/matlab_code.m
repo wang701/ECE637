@@ -19,6 +19,7 @@ surf(U,V,abs(H_lpf_1));
 xlabel('\mu');
 ylabel('\nu');
 zlabel('H(e^{j\mu},e^{j\nu})');
+print(fig2,'lpf1csft','-depsc','-tiff');
 G = 1 + lamda*(1 - H_lpf_1);
 fig3 = figure(3);
 surf(U,V,abs(G));
