@@ -16,11 +16,11 @@ X = double(img)/255;
 
 % Select an NxN region of the image and store it in the variable "z"
 
-i=100;
-j=100;
+p=100;
+q=100;
 
 N = 64;
-z = X(i:(N+i-1), j:(N+j-1));
+z = X(p:(N+p-1), q:(N+q-1));
 
 % Compute the power spectrum for the NxN region
 Z = (1/N^2)*abs(fft2(z)).^2;
@@ -41,7 +41,7 @@ ylabel('\nu');
 
 % N = 128 %
 N = 128;
-z = X(i:(N+i-1), j:(N+j-1));
+z = X(p:(N+p-1), q:(N+q-1));
 Z = (1/N^2)*abs(fft2(z)).^2;
 Z = fftshift(Z);
 Zabs = log(Z);
@@ -54,7 +54,7 @@ ylabel('\nu');
 
 % N = 256 %
 N = 256;
-z = X(i:(N+i-1), j:(N+j-1));
+z = X(p:(N+p-1), q:(N+q-1));
 Z = (1/N^2)*abs(fft2(z)).^2;
 Z = fftshift(Z);
 Zabs = log(Z);
