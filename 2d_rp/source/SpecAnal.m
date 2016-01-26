@@ -11,6 +11,7 @@ fig4 = figure(4);
 colormap(fig4, map);
 image(uint8(img));
 axis('image');
+imwrite(uint8(img), '../report/gs_img_4g.png');
 
 X = double(img)/255;
 
@@ -38,6 +39,7 @@ fig1 = figure(1);
 mesh(x,y,Zabs);
 xlabel('\mu');
 ylabel('\nu');
+print('-dpng','-r300','../report/psd_64x64.png');
 
 % N = 128 %
 N = 128;
@@ -51,6 +53,7 @@ fig2 = figure(2);
 mesh(x,y,Zabs);
 xlabel('\mu');
 ylabel('\nu');
+print('-dpng','-r300','../report/psd_128x128.png');
 
 % N = 256 %
 N = 256;
@@ -64,9 +67,11 @@ fig3 = figure(3);
 mesh(x,y,Zabs);
 xlabel('\mu');
 ylabel('\nu');
+print('-dpng','-r300','../report/psd_256x256.png');
 
 % Use BetterSpecAnal.m %
 [Z_better, fig5] = BetterSpecAnal(img);
+print('-dpng','-r300','../report/psd_better.png');
 
 %% Section 2 %%
 
@@ -76,6 +81,7 @@ fig6 = figure(6);
 colormap(fig6, map);
 image(uint8(img_rand_s));
 axis('image');
+imwrite(uint8(img_rand_s), '../report/randimg.png');
 
 img_f = zeros(512, 512);
 for m = 1:512
@@ -97,6 +103,7 @@ fig7 = figure(7);
 colormap(fig7, map);
 image(uint8(img_f+127));
 axis('image');
+imwrite(uint8(img_f+127), '../report/randimg_f.png');
 
 % Theoretical PSD %
 u = -pi:0.1:pi;
@@ -108,9 +115,11 @@ fig8 = figure(8);
 mesh(U,V,log(S_y));
 xlabel('\mu');
 ylabel('\nu');
+print('-dpng','-r300','../report/psd_theo.png');
 
 % Estimated PSD %
 [est_S_y, fig9] = BetterSpecAnal(img_f);
+print('-dpng','-r300','../report/psd_esti.png');
 
 
 
