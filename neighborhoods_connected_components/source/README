@@ -1,0 +1,140 @@
+This file gives details on how to use the C-subroutines
+for reading and writing TIFF files.
+
+tiff.c and tiff.h - C source code for reading and writing images 
+                    in the Tagged Image File Format
+
+The code in tiff.c and tiff.h may be used in conjunction with other C 
+software for reading and writing TIFF images.  In addition, there are
+utilities for allocating and de-allocating space for TIFF images.
+
+Image data is accessible to the programmer in a data structure, type 
+"struct TIFF_img" .  Below, we have included the definition of this 
+structure.  We have also included detailed descriptions of each of the 
+members in this structure.
+
+The following function prototypes are availabe in tiff.h:
+
+   int read_TIFF ( FILE *fp, struct TIFF_img *img );
+   int write_TIFF ( FILE *fp, struct TIFF_img *img );
+   int get_TIFF ( struct TIFF_img *img, int height, 
+                  int width , char TIFF_type );
+   void free_TIFF ( struct TIFF_img *img );
+
+To use either of the read_TIFF and write_TIFF functions, the programmer 
+must supply a pointer to the image file.  This image file must have 
+been opened prior to calling the function, and it should be closed after 
+the function has returned program control.  
+
+The read_TIFF function automatically fills in all of the necessary 
+members in the TIFF_img structure.  This includes automatic allocation 
+of memory for the image data (and the color-map, if applicable).  
+Unnecessary members in the TIFF_img structure are NOT filled in or 
+allocated.  For example, the "mono" array is not allocated if the 
+image is 24-bit color; and the "color" array is not allocated if the 
+image is grayscale.  
+
+The write_TIFF function writes image data according to the specifications
+of the programmer.  These specifications are communicated to write_TIFF 
+through the values of the members of the TIFF_img structure.  Therefore, 
+it is important that the TIFF_img structure be properly filled in before 
+write_TIFF is invoked.  This means that
+   . there must be correct values for the height and width;
+   . the compress_type variable must equal 'u'; 
+   . the TIFF_type variable must hold a valid value;
+   . space for the image data must have been allocated
+     (this includes the "mono," "color," and "cmap" arrays, 
+     whichever is/are appropriate); and
+   . if a color-map is to be written, the "cmap" array must 
+     have 256 rows and 3 columns.  (for more on this, see the 
+     "cmap" entry in the structure description below.)
+
+The get_TIFF function prepares a TIFF image structure for use.  This includes 
+assigning prescribed values for the image height, width, and TIFF_type.  In 
+addition, the necessary memory is allocated for the image data; i.e., space 
+is allocated for the "color", "mono", and "cmap" arrays as needed.  If a 
+color-map is allocated, it will have 256 rows and 3 columns.
+
+Normally, each of the read_TIFF, write_TIFF, and get_TIFF routines returns 
+the integral value of 1 or 0:
+   1 --> the procedure was NOT successful; and
+   0 --> the procedure was successful .
+There is a notable exception to this protocol.  With read_TIFF and get_TIFF, 
+tiff.c has to allocate space for image data.  If the system is not able to 
+allocate the desired memory, then the function will terminate execution by
+a call to "exit" .  In this case, the message "==> malloc() error" is written 
+to standard error.
+
+The free_TIFF routine may be used to de-allocate space which has been allocated 
+by read_TIFF and get_TIFF.  Use of this routine is strongly encouraged for 
+programming applications which read data from several images.  A couple of 
+important points are worth noting here.
+
+   . each call to read_TIFF or get_TIFF will cause a 
+     new piece of memory to be allocated. 
+
+   . if you try to access image data which has been 
+     de-allocated, then you may have problems.
+
+Currently, this software only supports reading and writing of uncompressed
+image data.  We have tried to write this code so that compression capability
+may be added.  See the source code or contact the author (C. B. Atkins) for
+more on this.
+
+The TIFF image data structure is defined as follows:
+
+   struct TIFF_img {
+     unsigned char         **mono;
+     unsigned char         **cmap;
+     unsigned char         ***color;
+
+     char                  TIFF_type; 
+     char                  compress_type;
+
+     int                   height;
+     int                   width;
+   };
+
+Following are working descriptions of each of the members in the TIFF_img 
+structure.
+
+   mono:  used to hold information for 8-bit grayscale and palettized images:
+
+             . for grayscale images, this array holds pixel values,
+               numbers in {0,...,255}.
+             . for palettized images, this array holds indices into 
+               a color-map.  
+
+   cmap:  used to hold the color-map for palettized image data (i.e., if 
+          the TIFF_type is 'p').  a color-map is a look-up table which
+          holds pixel values:  each row corresponds to a single color.  
+          for a given row, the values in the first, second, and third 
+          columns correspond to the red, green, and blue components of the 
+          pixel value, respectively.  
+
+          NOTE WELL:  for writing palettized image data, this array must 
+          be allocated with 256 rows, and 3 columns.  this is the 
+          programmer's responsibility.  if the allocated cmap array is 
+          smaller in either dimension, then a memory fault could occur.
+
+   color:  used to hold pixel values for 24-bit (color) images:  color[0], 
+           color[1], and color[2] are often regarded as the "red," "green," 
+           and "blue" planes, respectively.
+
+   TIFF_type:  specifies the type of image data.  this variable must take 
+               exactly one of the following values:
+
+                  . 'g' for 8-bit grayscale;
+                  . 'c' for 24-bit color;
+                  . 'p' for palettized image data .
+
+   compress_type:  used to specify the method of compression for the image 
+                   data.  currently, this must take the value of 'u' .  
+                   here, 'u' stands for "uncompressed."  in the future 
+                   if any additional compression capability is added, a 
+                   new valid compress_type should be added as well.
+
+   height:  the height of the image, in units of pixels
+
+   width:  the width of the image, in units of pixels
+
