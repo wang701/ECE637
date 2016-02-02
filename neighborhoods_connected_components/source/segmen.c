@@ -46,7 +46,7 @@ int main (int argc, char **argv) {
 			seg[i][j] = 0;
 		}
 	}
-	
+
     /* go through the image */
 	for (i = 0; i < input_img.height; i++) {
 		for (j = 0; j < input_img.width; j++) {
@@ -66,6 +66,9 @@ int main (int argc, char **argv) {
 			}
 		}
 	}
+
+	printf("Number of regions generated for %lf is %d\n", T, segLabel - 1);
+
 	for (i = 0; i < input_img.height; i++) {
 		for (j = 0; j < input_img.width; j++) {
 			input_img.mono[i][j] = seg[i][j];

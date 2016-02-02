@@ -37,8 +37,8 @@ int main (int argc, char **argv) {
 	sscanf(argv[4], "%lf", &T);
 
 	unsigned int **seg = (unsigned int **)get_img(input_img.width,
-                                                  input_img.height,
-                                                  sizeof(unsigned int));
+                          input_img.height, sizeof(unsigned int));
+
 	ConnectedSet(s, T, input_img.mono, input_img.width, input_img.height,
                  ClassLabel, seg, &numcon);
 
