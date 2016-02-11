@@ -61,7 +61,7 @@ int main (int argc, char **argv) {
 				} else {
                     /* otherwise, back to 0 */
 					ConnectedSet(s, T, input_img.mono, input_img.width,
-                                 input_img.height, 0, seg, &numcon);
+                                 input_img.height, 1, seg, &numcon);
 				}
 			}
 		}
