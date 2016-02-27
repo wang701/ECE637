@@ -67,19 +67,19 @@ Images} % Title
 	\subsection{Generating Gaussian Random Vectors}
 	\begin{figure}[h]
 		\begin{center}
-		\includegraphics[width=0.75\textwidth]{rvW.png}
+		\includegraphics[width=0.5\textwidth]{rvW.png}
 		\caption{Scatter plot for $W$}
 		\end{center}
 	\end{figure}
 	\begin{figure}[h]
 		\begin{center}
-		\includegraphics[width=0.75\textwidth]{rvXtilda.png}
+		\includegraphics[width=0.5\textwidth]{rvXtilda.png}
 		\caption{Scatter plot for $\tilde{X}$}
 		\end{center}
 	\end{figure}
 	\begin{figure}[h]
 		\begin{center}
-		\includegraphics[width=0.75\textwidth]{rvX.png}
+		\includegraphics[width=0.5\textwidth]{rvX.png}
 		\caption{Scatter plot for $X$}
 		\end{center}
 	\end{figure}
@@ -105,16 +105,18 @@ Images} % Title
 			\end{align*}
 		\subsubsection{Scatter Plots for $\tilde{X_{i}}$ and $W_{i}$}
 			\begin{figure}[h]
-				\begin{center}
-				\includegraphics[width=0.75\textwidth]{rvXtildaEsti.png}
-				\caption{Scatter plot for $\tilde{X_{i}}$}
-				\end{center}
-			\end{figure}
-			\begin{figure}[h]
-				\begin{center}
-				\includegraphics[width=0.75\textwidth]{rvWEsti.png}
-				\caption{Scatter plot for $W_{i}$}
-				\end{center}
+				\begin{subfigure}{0.5\textwidth}
+					\begin{center}
+					\includegraphics[width=0.8\textwidth]{rvXtildaEsti.png}
+					\caption{Scatter plot for $\tilde{X_{i}}$}
+					\end{center}
+				\end{subfigure}
+				\begin{subfigure}{0.5\textwidth}
+					\begin{center}
+					\includegraphics[width=0.8\textwidth]{rvWEsti.png}
+					\caption{Scatter plot for $W_{i}$}
+					\end{center}
+				\end{subfigure}
 			\end{figure}
 		\subsubsection{Estimated Covariance of Whitened Process}
 			\begin{align*}
@@ -125,14 +127,111 @@ Images} % Title
 				\end{bmatrix}
 			\end{align*}
 
-
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
+\section{Estimation of Eigenvectors and Eigenvalues Using the Signular Value
+Decomposition}
 
+Nothing due for report.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
+\section{Eigenimages, PCA and Data Reduction}
+	\subsection{12 Eigenvalues}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{12eigimgs.png}
+				\caption{12 Eigenimages}
+			\end{center}
+		\end{figure}
+	\subsection{Projection Coefficients vs. Eigenvector Number}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{projCoefVseigNum.png}
+				\caption{Projection Coefficients vs. Eigenvector Number}
+			\end{center}
+		\end{figure}
+	\subsection{Original Image and the 6 Resynthesized Images}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{orgA.png}
+				\caption{The Original Image of "a"}
+			\end{center}
+		\end{figure}
 
+\pagebreak
+
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{synA.png}
+				\caption{Synthesized Versions of of "a"}
+			\end{center}
+		\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+
+\section{Image Classification}
+	\subsection{Classification and PCA}
+		\subsubsection{Classification errors using Eigenvectors}
+			\begin{center}
+				\begin{tabular}{| l | c |}
+					\hline
+					Acutual Letter & Mis-classified Letter \\ \hline
+					d & a \\ \hline
+					j & y \\ \hline
+					l & i \\ \hline
+					n & v \\ \hline
+					p & e \\ \hline
+					q & a \\ \hline
+					u & a \\ \hline
+					y & v \\ \hline
+				\end{tabular}
+			\end{center}
+		\subsubsection{Classification errors using $B_{k}=\Lambda_{k}$}
+			\begin{center}
+				\begin{tabular}{| l | c |}
+					\hline
+					Acutual Letter & Mis-classified Letter \\ \hline
+					i & l \\ \hline
+					y & v \\ \hline
+				\end{tabular}
+			\end{center}
+		\subsubsection{Classification errors using $B_{k}=R_{wc}$}
+			\begin{center}
+				\begin{tabular}{| l | c |}
+					\hline
+					Acutual Letter & Mis-classified Letter \\ \hline
+					g & q \\ \hline
+					y & v \\ \hline
+				\end{tabular}
+			\end{center}
+		\subsubsection{Classification errors using $B_{k}=\Lambda$}
+			\begin{center}
+				\begin{tabular}{| l | c |}
+					\hline
+					Acutual Letter & Mis-classified Letter \\ \hline
+					f & t \\ \hline
+					y & v \\ \hline
+				\end{tabular}
+			\end{center}
+		\subsubsection{Classification errors using $B_{k}=I$}
+			\begin{center}
+				\begin{tabular}{| l | c |}
+					\hline
+					Acutual Letter & Mis-classified Letter \\ \hline
+					f & t \\ \hline
+					g & q \\ \hline
+					y & v \\ \hline
+				\end{tabular}
+			\end{center}
+	\subsection{Conclusions}
+		1. $B_k=\Lambda_k$,$B_k=R_wc$, and $B_k=\Lambda$ have similar
+		performance and have the smallest amount of errors. \\
+		2. There is a trade-off between the data model accuracy and estimate
+		accuracy. More complex the model is, poorer performance of the
+		estimation accuracy.
 \end{document}

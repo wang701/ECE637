@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.11)  26 FEB 2016 01:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.11)  26 FEB 2016 23:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -449,13 +449,13 @@ Overfull \hbox (22.55127pt too wide) in paragraph at lines 66--66
 File: rvW.png Graphic file (type png)
  <use rvW.png>
 Package pdftex.def Info: rvW.png used on input line 70.
-(pdftex.def)             Requested size: 258.75pt x 194.06194pt.
+(pdftex.def)             Requested size: 172.5pt x 129.37242pt.
 
 <rvXtilda.png, id=2, 578.16pt x 433.62pt>
 File: rvXtilda.png Graphic file (type png)
  <use rvXtilda.png>
 Package pdftex.def Info: rvXtilda.png used on input line 76.
-(pdftex.def)             Requested size: 258.75pt x 194.06194pt.
+(pdftex.def)             Requested size: 172.5pt x 129.37242pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -464,7 +464,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: rvX.png Graphic file (type png)
  <use rvX.png>
 Package pdftex.def Info: rvX.png used on input line 82.
-(pdftex.def)             Requested size: 258.75pt x 194.06194pt.
+(pdftex.def)             Requested size: 172.5pt x 129.37242pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -475,46 +475,73 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <rvXtildaEsti.png, id=15, 578.16pt x 433.62pt>
 File: rvXtildaEsti.png Graphic file (type png)
  <use rvXtildaEsti.png>
-Package pdftex.def Info: rvXtildaEsti.png used on input line 109.
-(pdftex.def)             Requested size: 258.75pt x 194.06194pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package pdftex.def Info: rvXtildaEsti.png used on input line 110.
+(pdftex.def)             Requested size: 138.00052pt x 103.49529pt.
 
 <rvWEsti.png, id=16, 578.16pt x 433.62pt>
 File: rvWEsti.png Graphic file (type png)
  <use rvWEsti.png>
-Package pdftex.def Info: rvWEsti.png used on input line 115.
-(pdftex.def)             Requested size: 258.75pt x 194.06194pt.
+Package pdftex.def Info: rvWEsti.png used on input line 116.
+(pdftex.def)             Requested size: 138.00052pt x 103.49529pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 108--120
+[]$[]$ $[]$ 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./rvXtilda.png (PNG copy)>] [3 <./rvX.png (PNG copy)> <./rvXtildaEsti.png (
-PNG copy)>] [4 <./rvWEsti.png (PNG copy)>] (out/lab-5-wang-yang.aux) ) 
+[2 <./rvXtilda.png (PNG copy)> <./rvX.png (PNG copy)>]
+<12eigimgs.png, id=24, 578.16pt x 433.62pt>
+File: 12eigimgs.png Graphic file (type png)
+ <use 12eigimgs.png>
+Package pdftex.def Info: 12eigimgs.png used on input line 145.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+
+<projCoefVseigNum.png, id=25, 578.16pt x 433.62pt>
+File: projCoefVseigNum.png Graphic file (type png)
+ <use projCoefVseigNum.png>
+Package pdftex.def Info: projCoefVseigNum.png used on input line 152.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+
+[3 <./rvXtildaEsti.png (PNG copy)> <./rvWEsti.png (PNG copy)> <./12eigimgs.png 
+(PNG copy)>] <orgA.png, id=32, 578.16pt x 433.62pt>
+File: orgA.png Graphic file (type png)
+ <use orgA.png>
+Package pdftex.def Info: orgA.png used on input line 159.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+ [4 <./projCoefVseigNum.png (PNG copy)> <./orgA.png (PNG copy)>]
+<synA.png, id=36, 578.16pt x 433.62pt>
+File: synA.png Graphic file (type png)
+ <use synA.png>
+Package pdftex.def Info: synA.png used on input line 168.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+ [5 <./synA.png (PNG copy)>] [6] (out/lab-5-wang-yang.aux) ) 
 Here is how much of TeX's memory you used:
- 8573 strings out of 493085
- 135485 string characters out of 6136917
- 241672 words of memory out of 5000000
- 11917 multiletter control sequences out of 15000+600000
- 9492 words of font info for 35 fonts, out of 8000000 for 9000
+ 8607 strings out of 493085
+ 136001 string characters out of 6136917
+ 242672 words of memory out of 5000000
+ 11943 multiletter control sequences out of 15000+600000
+ 10629 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,14n,94p,805b,417s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb>
-Output written on out/lab-5-wang-yang.pdf (4 pages, 474042 bytes).
+ 59i,14n,94p,805b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on out/lab-5-wang-yang.pdf (6 pages, 994995 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
