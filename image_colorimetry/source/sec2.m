@@ -21,6 +21,7 @@ plot(lambda, z);
 legend('x_{0}(\lambda)', 'y_{0}(\lambda)', 'z_{0}(\lambda)');
 xlabel('wavelength (nm)');
 title('Color Matching Functions vs. Wavelength');
+print('-dpng', '-r300', '../report/xyzmatching.png');
 
 l_m_s = A_inv * [x;y;z];
 l = l_m_s(1,:);
@@ -35,6 +36,7 @@ plot(lambda, s);
 legend('l_{0}(\lambda)', 'm_{0}(\lambda)', 's_{0}(\lambda)');
 xlabel('wavelength (nm)');
 title('Color Matching Functions (long, medium, short cones) vs. Wavelength');
+print('-dpng', '-r300', '../report/lmnmatching.png');
 
 figure(3);
 hold on;
@@ -43,3 +45,4 @@ plot(lambda, illum2);
 legend('D_{65}', 'Flurorescent Light');
 xlabel('wavelength (nm)');
 title('Spectrum of D_{65} and Fluorescent Light vs. Wavelength');
+print('-dpng', '-r300', '../report/illuminants.png');

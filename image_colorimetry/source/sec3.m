@@ -30,3 +30,4 @@ text(D_65(1), D_65(2), 'D_{65}');
 plot(EE(1), EE(2), 'mx');
 text(EE(1), EE(2), 'EE');
 title('Chromaticity for different RGB primaries');
+print('-dpng', '-r300', '../report/chromaticity.png');

@@ -57,6 +57,7 @@ gc_rgb = 255 * ((rgb).^(1/2.2));
 
 figure(2);
 image(uint8(gc_rgb));
+imwrite(uint8(gc_rgb), '../report/gcimgd65.png');
 
 % illum2 %
 % Step 2 %
@@ -99,3 +100,4 @@ gc_rgb = 255 * ((rgb).^(1/2.2));
 
 figure(3);
 image(uint8(gc_rgb));
+imwrite(uint8(gc_rgb), '../report/gcimgflu.png');
