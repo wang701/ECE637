@@ -5,13 +5,13 @@ CFLAGS = -std=c99 -Wall -pedantic
 # For SunOS
 #CFLAGS = -Aa
 
-all: Example
+all: medfilter
 
 clean:
-	/bin/rm *.o Example
+	/bin/rm *.o medfilter
 
 OBJ = tiff.o allocate.o randlib.o
 
-Example: Example.o $(OBJ) 
-	$(CC) $(CFLAGS) -o Example Example.o $(OBJ) -lm
+medfilter: medfilter.o $(OBJ)
+	$(CC) $(CFLAGS) -o medfilter medfilter.o $(OBJ) -lm
 
