@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.11)  24 APR 2016 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.11)  25 APR 2016 10:46
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -617,30 +617,49 @@ Package pdftex.def Info: mean_zigzag.png used on input line 155.
 (./_minted-lab-9-wang-yang/3F8465707F23CB2E6895360783CC3DA63F8BB464BE5EF3163EF4
 C8F3ABE466B8.pygtex [4 <./mean_zigzag.png>] [5] [6])
 (./_minted-lab-9-wang-yang/E63C616F251BA73BE6A4097621D804613965A205680A219F6CF1
-D105E6C3939C.pygtex [7] [8] [9]) [10] (out/lab-9-wang-yang.aux) ) 
+D105E6C3939C.pygtex [7] [8] [9]) [10]
+<img03y_1.jpeg, id=54, 513.92pt x 770.88pt>
+File: img03y_1.jpeg Graphic file (type jpg)
+ <use img03y_1.jpeg>
+Package pdftex.def Info: img03y_1.jpeg used on input line 177.
+(pdftex.def)             Requested size: 139.51704pt x 209.26959pt.
+
+<img03y_2.jpeg, id=55, 513.92pt x 770.88pt>
+File: img03y_2.jpeg Graphic file (type jpg)
+ <use img03y_2.jpeg>
+Package pdftex.def Info: img03y_2.jpeg used on input line 181.
+(pdftex.def)             Requested size: 139.51704pt x 209.26959pt.
+
+<img03y_3.jpeg, id=56, 513.92pt x 770.88pt>
+File: img03y_3.jpeg Graphic file (type jpg)
+ <use img03y_3.jpeg>
+Package pdftex.def Info: img03y_3.jpeg used on input line 185.
+(pdftex.def)             Requested size: 139.51704pt x 209.26959pt.
+ [11 <./img03y_1.jpeg> <./img03y_2.jpeg> <./img03y_3.jpeg>] (out/lab-9-wang-yan
+g.aux) ) 
 Here is how much of TeX's memory you used:
- 9154 strings out of 493085
- 145814 string characters out of 6136917
+ 9172 strings out of 493085
+ 146096 string characters out of 6136917
  258282 words of memory out of 5000000
- 12476 multiletter control sequences out of 15000+600000
- 9959 words of font info for 37 fonts, out of 8000000 for 9000
+ 12491 multiletter control sequences out of 15000+600000
+ 10797 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,9n,94p,805b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b>
-Output written on out/lab-9-wang-yang.pdf (10 pages, 1295804 bytes).
+ 59i,9n,94p,805b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmtt10.pfb>
+Output written on out/lab-9-wang-yang.pdf (11 pages, 1428535 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
